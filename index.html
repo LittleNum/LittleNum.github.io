@@ -1,1 +1,48 @@
-hello !
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>快应用与网页交互协议测试</title>
+</head>
+<body>
+<div class="contain">
+<button class="btn" onclick="copyToClipboard">一键复制：“i'm h5”</button>
+<button class="btn" onclick="isAppInstalled">应用是否安装</button>
+<button class="btn" onclick="getCookie">获取cookie</button>
+<button class="btn" onclick="tokenInvalid">token失效，重新校验和获取</button>
+</div>
+</body>
+<script>
+	function copyToClipboard(){
+		let data = {
+			clipboard: "i'm h5！！！"
+		}
+		system.postMessage(JSON.stringify(data))
+	}
+	function isAppInstalled(){
+		let data = {
+			isAppInstalled: "com.vivo.game"
+		}
+		system.postMessage(JSON.stringify(data))
+	}
+	function getCookie(){
+		system.postMessage("getCookie")
+	}
+	function tokenInvalid(){
+		system.postMessage("tokenInvalid")
+	}
+</script>
+<style>
+.contain {
+	display:flex;
+	flex-direction:column
+}
+
+.btn {
+	width:300px;
+	height:60px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+</style>
+</html>
