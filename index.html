@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>快应用与网页交互协议测试</title>
 </head>
-<body>
+<body onload="onload()">
 <div class="contain">
 <button class="btn" onclick="copyToClipboard()">一键复制：“i'm h5”</button>
 <button class="btn" onclick="isAppInstalled()">应用是否安装</button>
@@ -40,7 +40,10 @@
 		let data = {
 			videoControl : {
 				show: true,
-				url: url
+				url: url,
+				poster: 'http://img5.imgtn.bdimg.com/it/u=3300305952,1328708913&fm=26&gp=0.jpg',
+				autoplay: false,
+				muted: true
 			}
 		}
 		system.postMessage(JSON.stringify(data))
@@ -52,6 +55,11 @@
 			}
 		}
 		system.postMessage(JSON.stringify(data))
+	}
+	function onload(){
+		system.onmessage = function(data){
+			console.info('onmessage :',JSON.stringify(data))
+		}
 	}
 </script>
 <style>
