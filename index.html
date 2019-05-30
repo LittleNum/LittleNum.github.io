@@ -57,6 +57,7 @@
 		system.postMessage(JSON.stringify(data))
 	}
 	function onload(){
+		console.info('body onload')
 		system.onmessage = function(data){
 			console.info('onmessage :',JSON.stringify(data))
 		}
