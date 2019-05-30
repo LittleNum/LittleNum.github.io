@@ -35,7 +35,8 @@
 		system.postMessage("tokenInvalid")
 	}
 	function controlVideo(){
-		let url = flag ? 'http://videoconverter.vivo.com.cn/201904/37033_1556246468548.mp4' : 'https://swsdl.vivo.com.cn/appstore/developer/uploadfile/20180323/20180323183010837.mp4'
+		let url = flag ? 'http://videoconverter.vivo.com.cn/201904/37033_1556246468548.mp4' :
+		'https://swsdl.vivo.com.cn/appstore/developer/uploadfile/20180323/20180323183010837.mp4'
 		flag = !flag
 		let data = {
 			videoControl : {
@@ -58,8 +59,10 @@
 	}
 	function onload(){
 		console.info('body onload')
+		alert()
 		system.onmessage = function(data){
 			console.info('onmessage :',JSON.stringify(data))
+			alert('onmessage: '+JSON.stringify(data))
 		}
 	}
 </script>
