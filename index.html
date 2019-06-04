@@ -6,16 +6,22 @@
 </head>
 <body onload="onload()">
 <div class="contain">
+<button class="btn" onclick="postMessage()">postMessage:it's from web</button>
 <button class="btn" onclick="copyToClipboard()">一键复制：“i'm h5”</button>
 <button class="btn" onclick="isAppInstalled()">应用是否安装</button>
 <button class="btn" onclick="getCookie()">获取cookie</button>
 <button class="btn" onclick="tokenInvalid()">token失效，重新校验和获取</button>
 <button class="btn" onclick="controlVideo()">控制视频组件显示，并传递新的视频地址</button>
 <button class="btn" onclick="dismissVideo()">控制视频组件隐藏</button>
+<span id="log" class="btn"/>
 </div>
 </body>
 <script>
 	var flag = false
+	function postMessage(){
+		system.postMessage("'it's from web")
+	}
+	
 	function copyToClipboard(){
 		let data = {
 			clipboard: "i'm h5！！！"
@@ -37,12 +43,14 @@
 	function controlVideo(){
 		let url = flag ? 'http://videoconverter.vivo.com.cn/201904/37033_1556246468548.mp4' :
 		'https://swsdl.vivo.com.cn/appstore/developer/uploadfile/20180323/20180323183010837.mp4'
+		let poster = flag? 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1925128384,306388267&fm=26&gp=0.jpg'
+		:'http://img5.imgtn.bdimg.com/it/u=3300305952,1328708913&fm=26&gp=0.jpg'
 		flag = !flag
 		let data = {
 			videoControl : {
 				show: true,
 				url: url,
-				poster: 'http://img5.imgtn.bdimg.com/it/u=3300305952,1328708913&fm=26&gp=0.jpg',
+				poster: poster,
 				autoplay: false,
 				muted: true
 			}
@@ -59,10 +67,10 @@
 	}
 	function onload(){
 		console.info('body onload')
-		alert('body onload')
+		//alert('body onload')
 		system.onmessage = function(data){
 			console.info('onmessage :'+JSON.stringify(data))
-			alert('onmessage: '+JSON.stringify(data))
+			//alert('onmessage: '+JSON.stringify(data))
 		}
 	}
 </script>
