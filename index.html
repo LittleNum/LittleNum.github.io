@@ -19,33 +19,33 @@
 <script>
 	var flag = false
 	function postMessage(){
-		system.postMessage("'it's from web")
+		system.postMessage("'it's from web");
 	}
 	
 	function copyToClipboard(){
 		let data = {
 			clipboard: "i'm h5！！！"
-		}
-		system.postMessage(JSON.stringify(data))
+		};
+		system.postMessage(JSON.stringify(data));
 	}
 	function isAppInstalled(){
 		let data = {
 			isAppInstalled: "com.vivo.game"
-		}
-		system.postMessage(JSON.stringify(data))
+		};
+		system.postMessage(JSON.stringify(data));
 	}
 	function getCookie(){
-		system.postMessage("getCookie")
+		system.postMessage("getCookie");
 	}
 	function tokenInvalid(){
-		system.postMessage("tokenInvalid")
+		system.postMessage("tokenInvalid");
 	}
 	function controlVideo(){
 		let url = flag ? 'http://videoconverter.vivo.com.cn/201904/37033_1556246468548.mp4' :
-		'https://swsdl.vivo.com.cn/appstore/developer/uploadfile/20180323/20180323183010837.mp4'
-		let poster = flag? 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1925128384,306388267&fm=26&gp=0.jpg'
-		:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1408435289,1995201555&fm=26&gp=0.jpg'
-		flag = !flag
+		'https://swsdl.vivo.com.cn/appstore/developer/uploadfile/20180323/20180323183010837.mp4';
+		let poster = flag ? 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1925128384,306388267&fm=26&gp=0.jpg'
+		:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1408435289,1995201555&fm=26&gp=0.jpg';
+		flag = !flag;
 		let data = {
 			videoControl : {
 				show: true,
@@ -54,24 +54,24 @@
 				autoplay: false,
 				muted: true
 			}
-		}
-		system.postMessage(JSON.stringify(data))
+		};
+		system.postMessage(JSON.stringify(data));
 	}
 	function dismissVideo(){
 		let data = {
 			videoControl : {
 				show: false
 			}
-		}
-		system.postMessage(JSON.stringify(data))
+		};
+		system.postMessage(JSON.stringify(data));
 	}
 	function onload(){
-		console.info('body onload')
+		console.info('body onload');
 		//alert('body onload')
 		system.onmessage = function(data){
 			console.info('onmessage :'+JSON.stringify(data))
 			//alert('onmessage: '+JSON.stringify(data))
-		}
+		};
 	}
 </script>
 <style>
