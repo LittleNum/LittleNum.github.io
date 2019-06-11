@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>快应用与网页交互协议测试</title>
 </head>
-<body onload="onload()">
+<body onload="load()">
 <div class="contain">
 <button class="btn" onclick="postMessage()">postMessage:it's from web</button>
 <button class="btn" onclick="copyToClipboard()">一键复制：“i'm h5”</button>
@@ -23,13 +23,13 @@
 	}
 	
 	function copyToClipboard(){
-		let data = {
+		var data = {
 			clipboard: "i'm h5！！！"
 		};
 		system.postMessage(JSON.stringify(data));
 	}
 	function isAppInstalled(){
-		let data = {
+		var data = {
 			isAppInstalled: "com.vivo.game"
 		};
 		system.postMessage(JSON.stringify(data));
@@ -41,12 +41,12 @@
 		system.postMessage("tokenInvalid");
 	}
 	function controlVideo(){
-		let url = flag ? 'http://videoconverter.vivo.com.cn/201904/37033_1556246468548.mp4' :
+		var url = flag ? 'http://videoconverter.vivo.com.cn/201904/37033_1556246468548.mp4' :
 		'https://swsdl.vivo.com.cn/appstore/developer/uploadfile/20180323/20180323183010837.mp4';
-		let poster = flag ? 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1925128384,306388267&fm=26&gp=0.jpg'
+		var poster = flag ? 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1925128384,306388267&fm=26&gp=0.jpg'
 		:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1408435289,1995201555&fm=26&gp=0.jpg';
 		flag = !flag;
-		let data = {
+		var data = {
 			videoControl : {
 				show: true,
 				url: url,
@@ -58,14 +58,14 @@
 		system.postMessage(JSON.stringify(data));
 	}
 	function dismissVideo(){
-		let data = {
+		var data = {
 			videoControl : {
 				show: false
 			}
 		};
 		system.postMessage(JSON.stringify(data));
 	}
-	function onload(){
+	function load(){
 		console.info('body onload');
 		//alert('body onload')
 		system.onmessage = function(data){
