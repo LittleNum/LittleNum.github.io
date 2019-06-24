@@ -67,6 +67,8 @@
 	}
 	function load(){
 		console.info('body onload');
+		console.info('system :' + system)
+		console.info('system :' + JSON.stringify(system))
 		//alert('body onload')
 		system.onmessage = function(data){
 			console.info('onmessage :'+JSON.stringify(data))
