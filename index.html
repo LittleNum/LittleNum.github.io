@@ -13,9 +13,11 @@
 <button class="btn" onclick="tokenInvalid()">token失效，重新校验和获取</button>
 <button class="btn" onclick="controlVideo()">控制视频组件显示，并传递新的视频地址</button>
 <button class="btn" onclick="dismissVideo()">控制视频组件隐藏</button>
+<div id="aa">{{msg}}</div>
 <span id="log" class="btn"/>
 </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>
 	var flag = false
 	function postMessage(){
@@ -69,12 +71,19 @@
 		console.info('body onload');
 		console.info('system :' + system)
 		console.info('system :' + JSON.stringify(system))
+		console.info('vue :' + Vue)
 		//alert('body onload')
 		system.onmessage = function(data){
 			console.info('onmessage :'+JSON.stringify(data))
 			//alert('onmessage: '+JSON.stringify(data))
 		};
 	}
+	new Vue({
+	el:"#aa",
+		data:{
+			msg:"adafasf"
+		}
+	})
 </script>
 <style>
 .contain {
