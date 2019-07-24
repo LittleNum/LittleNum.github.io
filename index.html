@@ -74,6 +74,7 @@
 		console.info('system :' + JSON.stringify(system))
 		console.info('vue :' + Vue)
 		//alert('body onload')
+		system.postMessage("pageLoadSuccess");
 		system.onmessage = function(data){
 			console.info('onmessage :'+JSON.stringify(data))
 			//alert('onmessage: '+JSON.stringify(data))
