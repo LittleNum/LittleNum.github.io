@@ -14,6 +14,9 @@
 <button class="btn" onclick="controlVideo()">控制视频组件显示，并传递新的视频地址</button>
 <button class="btn" onclick="dismissVideo()">控制视频组件隐藏</button>
 <button class="btn" onclick="getNetType()">获取网络类型</button>
+<button class="btn" onclick="saveDataToLocal()">存储数据key=“hello”，value=“world”</button>
+<button class="btn" onclick="readDataFromLocal()">获取数据，key=“hello”，value”</button>
+<button class="btn" onclick="showToast()">show toast：hello you're well</button>
 <div id="aa">{{msg}}</div>
 <span id="log" class="btn"/>
 </div>
@@ -64,6 +67,32 @@
 		var data = {
 			videoControl : {
 				show: false
+			}
+		};
+		system.postMessage(JSON.stringify(data));
+	}
+	function saveDataToLocal(){
+		var data = {
+			saveDataToLocal : {
+				key: "hello",
+				value:"world"
+			}
+		};
+		system.postMessage(JSON.stringify(data));
+	}
+	function readDataFromLocal(){
+		var data = {
+			readDataFromLocal : {
+				key: "hello"
+			}
+		};
+		system.postMessage(JSON.stringify(data));
+	}
+	function showToast(){
+		var data = {
+			videoControl : {
+				message: "hello, world",
+				duration : 1
 			}
 		};
 		system.postMessage(JSON.stringify(data));
